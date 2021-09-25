@@ -13,15 +13,25 @@ public class Graph : MonoBehaviour
         this.width = width;
         this.height = height;
 
+        nodes = new Node[width, height];
 
-        for(int x = 0; x < this.width; x++)
+        for(int x = 0; x < width; x++)
         {
-            for(int y = 0; y < this.height; y++)
+            for(int y = 0; y < height; y++)
             {
+
+                Walls walls = new Walls
+                {
+                    northWall = true,
+                    eastWall = true,
+                    southWall = true,
+                    westWall = true
+                };
+
                 Node node = new Node();
-                node.Init(x, y);
+                node.Init(x, y, walls);
                 nodes[x, y] = node;
-                node.position = new Vector3(x, 0, y);
+                node.position = new Vector3(x, 0, -y);
             }
 
         }

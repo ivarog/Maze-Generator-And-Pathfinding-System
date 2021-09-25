@@ -9,10 +9,20 @@ public class SceneController : MonoBehaviour
     [SerializeField] GraphView graphView;
 
     Graph graph = new Graph();
+    MazeGenerator mazeGenerator = new MazeGenerator();
 
     private void Start() 
     {
         graph.Init(width, height);
-        graphView.Init(graph);
+        mazeGenerator.Init(graph);
+        mazeGenerator.HuntAndKillAlgorithm();
+        graphView?.Init(graph);
     }
+
+    // private void Update() 
+    // {
+    //     if(Input.GetMouseButtonUp(0))
+    //     {
+    //     }    
+    // }
 }

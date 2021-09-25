@@ -25,4 +25,36 @@ public class Node : MonoBehaviour
         this.y = y;
         this.walls = walls;
     }
+
+    public void SetNorthWall(bool state)
+    {
+        if(walls != null)
+        {
+            walls.northWall = state;
+        }
+    }
+
+    public void SetEastWall(bool state)
+    {
+        if(walls != null)
+        {
+            walls.eastWall = state;
+        }
+    }
+
+    public void SetSouthWall(bool state)
+    {
+        if(walls != null)
+        {
+            walls.southWall = state;
+        }
+    }
+
+    public void SetWestWall(bool state)
+    {
+        if(walls != null)
+        {
+            walls.westWall = state;
+        }
+    }
 }

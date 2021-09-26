@@ -10,7 +10,7 @@ public class Walls
     public bool southWall = false;
 }
 
-public class Node : MonoBehaviour
+public class Node
 {
     public int x = -1;
     public int y = -1;
@@ -18,6 +18,7 @@ public class Node : MonoBehaviour
     public List<Node> neighbors = new List<Node>();
     public Vector3 position;
     public Walls walls = new Walls();
+    public Node previousNode;
     
     public void Init(int x, int y, Walls walls)
     {
@@ -56,5 +57,10 @@ public class Node : MonoBehaviour
         {
             walls.westWall = state;
         }
+    }
+
+    public void Reset()
+    {
+        previousNode = null;
     }
 }

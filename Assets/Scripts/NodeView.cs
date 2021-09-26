@@ -10,12 +10,17 @@ public class NodeView : MonoBehaviour
     [SerializeField] GameObject southWall;
     [SerializeField] GameObject westWall;
 
+    MeshRenderer meshRenderer;
+    public Node node;
+
     public void Init(Node node)
     {
         if(tile != null)
         {
+            this.node = node;
             gameObject.name = "[" + node.x + "," + node.y + "]";
             gameObject.transform.position = node.position;
+            meshRenderer = tile.GetComponent<MeshRenderer>();
             HandleWalls(node.walls);
         }
     }
@@ -26,5 +31,10 @@ public class NodeView : MonoBehaviour
         eastWall.SetActive(walls.eastWall);
         southWall.SetActive(walls.southWall);
         westWall.SetActive(walls.westWall);
+    }
+
+    public void ColorNode(Material material)
+    {
+        meshRenderer.material = material;
     }
 }

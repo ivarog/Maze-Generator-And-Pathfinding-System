@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MazeGenerator : MonoBehaviour
+public class MazeGenerator
 {
     private Graph graph;
     private int width;
@@ -85,10 +85,6 @@ public class MazeGenerator : MonoBehaviour
         else if(exitX == width - 1) nodesInfo[width - 1, exitY].node.SetEastWall(false);
         else if(exitY == 0) nodesInfo[exitX, 0].node.SetNorthWall(false);
         else if(exitY == height - 1) nodesInfo[exitX, height -1].node.SetSouthWall(false);
-
-        Debug.Log(exitX);
-        Debug.Log(exitY);
-
     }
 
     public void Walk()
